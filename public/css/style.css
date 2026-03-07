@@ -127,3 +127,12 @@ body {
 .show-img {
   height: 30vh !important;
 }
+
+.btns {
+  display: flex;
+}
+
+.show-card {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
