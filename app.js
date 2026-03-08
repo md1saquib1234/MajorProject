@@ -99,6 +99,10 @@ app.get("/listings", async (req, res) => {
 //     res.send("successful testing");
 // });
 
+app.use((err, req, res, next) => {
+  res.send("Something went wrong!");
+});
+
 
 app.listen(8080, () => {
   console.log("server is listenig to port 8080");
