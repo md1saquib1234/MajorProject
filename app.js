@@ -9,6 +9,8 @@ const wrapAsync = require("./utils/wrapAsync.js");
 const ExpressError = require("./utils/ExpressError.js");
 
 
+
+
 //Mongo URL
 const MONGO_URL = "mongodb://127.0.0.1:27017/wanderlust";
 
@@ -63,11 +65,11 @@ app.get("/listings", wrapAsync (async (req, res) => {
       throw new ExpressError(400, "Invalid listing data");
     }
     const newListing = new Listing(req.body.listing);
+    
     await newListing.save();
     res.redirect("/listings");
-    }
     
-   ));
+  }));
 
   //Edit Route 
   app.get("/listings/:id/edit", wrapAsync (async (req, res) => {
@@ -115,7 +117,8 @@ app.use((req, res, next) => {
 
 app.use((err, req, res, next) => {
   let {statusCode = 500, message = "Something went wrong!"} = err;
-  res.status(statusCode).send(message);
+  res.status(statusCode).render("error.ejs", {message});
+  // res.status(statusCode).send(message);
 });
 
 
