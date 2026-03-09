@@ -11,11 +11,11 @@
   src="<%= listing.image.url %>" class="card-img-top"
   alt="listing_image" 
   style="height: 20rem;"/>
-  <div class="card-img-overlay">abcd</div>
+  <div class="card-img-overlay"></div>
   <div class="card-body">
     <p class="card-text">
       <b><%= listing.title %></b><br>
-      <%= listing.price.toLocaleString("en-IN") %> / night 
+      <%= listing.price ? listing.price.toLocaleString("en-IN") : "price is not available"%> / night 
     </p>
   </div>
 </div>
