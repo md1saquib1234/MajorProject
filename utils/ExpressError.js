@@ -6,4 +6,5 @@ class ExpressError extends Error {
   };
 };
 
+//Error handling in app.js
 module.exports = ExpressError;
